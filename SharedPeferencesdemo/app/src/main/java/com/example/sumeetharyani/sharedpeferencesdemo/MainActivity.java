@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         mColor = sharedPreferences.getInt("colour", ContextCompat.getColor(this, R.color.default_background));
         countTextView.setText(String.valueOf(mCount));
         countTextView.setBackgroundColor(mColor);
+        //setting up listner
         SharedPreferences.OnSharedPreferenceChangeListener listener =
                 new SharedPreferences.OnSharedPreferenceChangeListener() {
                     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
