@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
@@ -82,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
         mColor = sharedPreferences.getInt("colour", ContextCompat.getColor(this, R.color.default_background));
         countTextView.setText(String.valueOf(mCount));
         countTextView.setBackgroundColor(mColor);
+        SharedPreferences.OnSharedPreferenceChangeListener listener =
+                new SharedPreferences.OnSharedPreferenceChangeListener() {
+                    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                        Toast.makeText(MainActivity.this, "CHANGES MADE", Toast.LENGTH_SHORT).show();
+                    }
+                };
+        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
