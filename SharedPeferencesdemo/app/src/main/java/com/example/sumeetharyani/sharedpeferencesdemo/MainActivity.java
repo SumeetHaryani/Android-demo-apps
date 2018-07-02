@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 mCount = 0;
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 countTextView.setText(String.valueOf(0));
-                countTextView.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.default_background));
+                mColor = ContextCompat.getColor(MainActivity.this, R.color.default_background);
+                countTextView.setBackgroundColor(mColor);
                 editor.clear();
                 editor.apply();
             }
